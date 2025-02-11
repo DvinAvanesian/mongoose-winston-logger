@@ -1,7 +1,7 @@
-import { Log } from '/models/log'
-import { configureLogger, winstonLogger } from '/lib/winston'
+import { Log } from '../models/log'
+import { configureLogger, winstonLogger } from '../lib/winston'
 import { Types } from 'mongoose'
-import type { Logger } from '/types/Logger'
+import type { Logger } from '../types/Logger'
 
 // the Logger class used across the app for detailed logging
 class Logger implements Logger.Interface {
@@ -85,4 +85,4 @@ class Logger implements Logger.Interface {
   }
 }
 
-export default Logger
+export { Logger }

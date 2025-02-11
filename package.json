@@ -1,6 +1,6 @@
 {
   "name": "mongoose-winston-logger",
-  "version": "1.0.0",
+  "version": "1.0.2",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
   "author": "Dvin Avanesian",
@@ -14,12 +14,13 @@
     "test": "vitest"
   },
   "dependencies": {
+    "dotenv": "^16.4.7",
     "mongoose": "^8.10.0",
     "winston": "^3.17.0",
     "winston-daily-rotate-file": "^5.0.0"
   },
   "devDependencies": {
-    "@types/bun": "^1.2.2",
+    "@types/node": "^22.13.1",
     "typescript": "^5.7.3",
     "vitest": "^3.0.5"
   },

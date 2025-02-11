@@ -1,3 +1,5 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import mongoose from 'mongoose'
 import LogSchema from '../src/models/log/schemas/log'

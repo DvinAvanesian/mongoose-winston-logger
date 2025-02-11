@@ -8,16 +8,14 @@
     "declaration": true,
     "outDir": "./dist",
     "rootDir": "./src",
-    "esModuleInterop": true,
     "module": "esnext",
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
     "forceConsistentCasingInFileNames": false,
     "moduleResolution": "node",
     "isolatedModules": false,
     "target": "ES2022",
-    "incremental": true,
-    "paths": {
-      "/*": ["./src/*"]
-    }
+    "incremental": true
   },
   "include": ["src/**/*.ts"],
   "exclude": ["node_modules"]

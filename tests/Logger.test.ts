@@ -1,6 +1,8 @@
+import dotenv from 'dotenv'
+dotenv.config()
 import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest'
 import mongoose from 'mongoose'
-import { Logger } from '../src/'
+import Logger from '../src/'
 import { winstonLogger } from '../src/lib/winston'
 
 beforeAll(async () => {
