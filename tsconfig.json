@@ -12,7 +12,7 @@
     "module": "esnext",
     "forceConsistentCasingInFileNames": false,
     "moduleResolution": "node",
-    "isolatedModules": true,
+    "isolatedModules": false,
     "target": "ES2022",
     "incremental": true,
     "paths": {

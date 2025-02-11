@@ -62,6 +62,12 @@ For testing, ensure that `MONGO_URI` is set in your `.env` file:
 MONGO_URI=mongodb://localhost:27017/testdb
 ```
 
+Optionally, you can set the `LOGS_DIR` environment variable to specify a custom directory for log files:
+
+```
+LOGS_DIR=/path/to/custom/log/dir
+```
+
 ## License
 
 This project is licensed under the MIT License.

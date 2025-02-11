@@ -85,4 +85,4 @@ class Logger implements Logger.Interface {
   }
 }
 
-export { Logger }
+export default Logger

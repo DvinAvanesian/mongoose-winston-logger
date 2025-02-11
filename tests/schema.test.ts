@@ -5,8 +5,8 @@ import LogSchema from '../src/models/log/schemas/log'
 const Log = mongoose.model('Log', LogSchema)
 
 beforeAll(async () => {
-  if (!Bun.env.MONGO_URI) throw new Error('MongoDB URI must be set in .env!')
-  await mongoose.connect(Bun.env.MONGO_URI)
+  if (!process.env.MONGO_URI) throw new Error('MongoDB URI must be set in .env!')
+  await mongoose.connect(process.env.MONGO_URI)
 })
 
 afterAll(async () => {

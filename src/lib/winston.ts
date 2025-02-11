@@ -14,7 +14,7 @@ export const winstonLogger = winston.createLogger({
 
 // configure the logger with daily rotating file transports
 export const configureLogger = async () => {
-  const logsDir = Bun.env.LOGS_DIR || './logs/'
+  const logsDir = process.env.LOGS_DIR || './logs/'
 
   // daily rotate file for errors
   const errorTransport = new DailyRotateFile({
