@@ -1,6 +1,6 @@
 {
   "name": "mongoose-winston-logger",
-  "version": "1.0.10",
+  "version": "1.0.13",
   "main": "dist/index.js",
   "types": "types.d.ts",
   "author": "Dvin Avanesian",
