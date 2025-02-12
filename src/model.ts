@@ -1,5 +1,5 @@
-import { Schema } from 'mongoose'
-import type Log from '../types/Log'
+import mongoose, { Schema } from 'mongoose'
+import type { Log } from './types'
 
 const LogSchema = new Schema<Log.Document>({
   action: {
@@ -15,4 +15,6 @@ const LogSchema = new Schema<Log.Document>({
   affected: { type: Schema.Types.Mixed, _id: false, __v: false }
 })
 
-export default LogSchema
+const Log = mongoose.models.Log || mongoose.model<Log.Document>('Log', LogSchema)
+
+export { Log, LogSchema }

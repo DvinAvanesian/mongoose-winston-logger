@@ -2,7 +2,7 @@ import dotenv from 'dotenv'
 dotenv.config()
 import { describe, it, expect, beforeAll, afterAll } from 'vitest'
 import mongoose from 'mongoose'
-import LogSchema from '../src/models/log/schemas/log'
+import { LogSchema } from '../src/model'
 
 const Log = mongoose.model('Log', LogSchema)
 

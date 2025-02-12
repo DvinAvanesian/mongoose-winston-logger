@@ -1,22 +1,18 @@
 {
   "compilerOptions": {
-    "lib": ["dom", "dom.iterable", "esnext"],
-    "allowJs": true,
-    "skipLibCheck": true,
-    "strict": true,
-    "noEmit": false,
+    "rootDir": "src",
     "declaration": true,
-    "outDir": "./dist",
-    "rootDir": "./src",
+    "declarationDir": "./dist/types",
     "module": "esnext",
-    "esModuleInterop": true,
-    "allowSyntheticDefaultImports": true,
-    "forceConsistentCasingInFileNames": false,
+    "target": "es2020",
     "moduleResolution": "node",
-    "isolatedModules": false,
-    "target": "ES2022",
-    "incremental": true
+    "sourceMap": false,
+    "strict": true,
+    "esModuleInterop": true,
+    "forceConsistentCasingInFileNames": true,
+    "skipLibCheck": true,
+    "baseUrl": "."
   },
   "include": ["src/**/*.ts"],
-  "exclude": ["node_modules"]
+  "exclude": ["node_modules", "dist"]
 }

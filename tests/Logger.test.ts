@@ -3,7 +3,7 @@ dotenv.config()
 import { describe, it, expect, beforeAll, afterAll, vi } from 'vitest'
 import mongoose from 'mongoose'
 import Logger from '../src/'
-import { winstonLogger } from '../src/lib/winston'
+import { winstonLogger } from '../src/winston'
 
 beforeAll(async () => {
   if (!process.env.MONGO_URI) throw new Error('MongoDB URI must be set in .env!')

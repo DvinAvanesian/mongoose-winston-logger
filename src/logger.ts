@@ -1,40 +1,60 @@
-import { Log } from '../models/log'
-import { configureLogger, winstonLogger } from '../lib/winston'
+import { Log } from './model'
+import { configureLogger, winstonLogger } from './winston'
 import { Types } from 'mongoose'
-import type { Logger } from '../types/Logger'
+import { Logger } from './types'
 
 // the Logger class used across the app for detailed logging
+/**
+ * The Logger class used for detailed logging across the application.
+ * @implements {Logger.Interface}
+ */
 class Logger implements Logger.Interface {
   // the string that is printed in the console and appended to the log file
   private logInfoString
 
-  // logger instance can be initialized with a client (ip), user (username), api endpoint, and the request method
+  /**
+   * Creates an instance of Logger.
+   * @param {Logger.InitialProps} props - The initial properties for the logger.
+   */
   constructor({ client, user, url, method }: Logger.InitialProps) {
     // the props are only used for generating the log string
     this.logInfoString = `${client ? `[${client}]` : ''}${url ? ` [${method ? `${method} at ` : ''}${url}]` : ''}${user ? ` [${user}]` : ''}`
 
     // configure winston for logging to console and the log file
-    configureLogger().catch(err => {
+    configureLogger().catch((err: any) => {
       winstonLogger.error('Failed to configure logger:', err)
     })
   }
 
-  // update the logger instance to change the proper below
+  /**
+   * Updates the logger instance with new properties.
+   * @param {Logger.InitialProps} props - The new properties for the logger.
+   */
   update({ client, user, url, method }: Logger.InitialProps) {
     this.logInfoString = `${client ? `[${client}]` : ''}${url ? ` [${method ? `${method} at ` : ''}${url}]` : ''}${user ? ` [${user}]` : ''}`
   }
 
-  // used for informational logging to the console and the log file
+  /**
+   * Logs an informational message to the console and the log file.
+   * @param {Logger.Message} message - The message to log.
+   */
   info({ message }: Logger.Message) {
     winstonLogger.info(`${this.logInfoString} ${message}`)
   }
 
-  // a simple static method used when we don't want to create an instance of Logger
+  /**
+   * Logs a basic message without creating an instance of Logger.
+   * @param {string} message - The message to log.
+   * @param {'error' | 'info'} [level='info'] - The log level.
+   */
   static basic(message: string, level: 'error' | 'info' = 'info') {
     winstonLogger[level](message)
   }
 
-  // logging write actions to the database in details
+  /**
+   * Logs a detailed action to the database.
+   * @param {Logger.ActionProps} props - The properties of the action to log.
+   */
   async action({ message, action, oldValues, newValues, group, user, affected }: Logger.ActionProps) {
     // first, the informational log
     winstonLogger.info(`${this.logInfoString} ${message}`)
@@ -79,7 +99,10 @@ class Logger implements Logger.Interface {
     }
   }
 
-  // used for logging an error to the console and the log file
+  /**
+   * Logs an error message to the console and the log file.
+   * @param {Logger.Message} message - The message to log.
+   */
   error({ message }: Logger.Message) {
     winstonLogger.error(`${this.logInfoString} ${message}`)
   }
