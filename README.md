@@ -1,26 +1,26 @@
-# mongoose-winston-logger
+# @dvinav/mwlogger
 
-`mongoose-winston-logger` is an npm package that provides a logger class for integrating Mongoose with Winston. This package helps you log Mongoose queries and operations using the Winston logging library.
+`@dvinav/mwlogger` is an npm package that provides a logger class for integrating Mongoose with Winston. This package helps you log Mongoose queries and operations using the Winston logging library.
 
 ## Installation
 
 To install the package, use npm or bun:
 
 ```bash
-npm install mongoose-winston-logger
+npm install @dvinav/mwlogger
 ```
 
 or
 
 ```bash
-bun add mongoose-winston-logger
+bun add @dvinav/mwlogger
 ```
 
 ## Usage
 
 ```javascript
 import { mongoose } from mongoose
-import { Logger } from 'mongoose-winston-logger'
+import { Logger } from '@dvinav/mwlogger'
 
 // Initialize Mongoose
 mongoose.connect(process.env.YOUR_MONGODB_URI)

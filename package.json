@@ -1,13 +1,13 @@
 {
-  "name": "mongoose-winston-logger",
-  "version": "1.0.16",
+  "name": "@dvinav/mwlogger",
+  "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
   "author": "Dvin Avanesian",
   "license": "MIT",
   "repository": {
     "type": "git",
-    "url": "https://github.com/DvinAvanesian/mongoose-winston-logger"
+    "url": "https://github.com/dvinav/mwlogger"
   },
   "scripts": {
     "build": "node esbuild.mts",
