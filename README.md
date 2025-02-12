@@ -20,7 +20,7 @@ bun add @dvinav/mwlogger
 
 ```javascript
 import { mongoose } from mongoose
-import { Logger } from '@dvinav/mwlogger'
+import Logger from '@dvinav/mwlogger'
 
 // Initialize Mongoose
 mongoose.connect(process.env.YOUR_MONGODB_URI)

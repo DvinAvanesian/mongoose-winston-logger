@@ -14,7 +14,7 @@
     "test": "vitest"
   },
   "exports": {
-    ".": "dist/index.js"
+    ".": "./dist/index.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
