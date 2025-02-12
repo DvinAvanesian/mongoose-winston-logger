@@ -1,14 +1,13 @@
 import { Log } from './model'
 import { configureLogger, winstonLogger } from './winston'
-import { Types } from 'mongoose'
+import mongoose from 'mongoose'
 import { Logger } from './types'
 
-// the Logger class used across the app for detailed logging
 /**
  * The Logger class used for detailed logging across the application.
- * @implements {Logger.Interface}
+ * @implements {Logger.ILogger}
  */
-class Logger implements Logger.Interface {
+class Logger implements Logger.ILogger {
   // the string that is printed in the console and appended to the log file
   private logInfoString
 
@@ -60,19 +59,19 @@ class Logger implements Logger.Interface {
     winstonLogger.info(`${this.logInfoString} ${message}`)
 
     // array for storing affected entities' oids
-    const affectedUsers: Types.ObjectId[] = []
-    const affectedClients: Types.ObjectId[] = []
+    const affectedUsers: mongoose.Types.ObjectId[] = []
+    const affectedClients: mongoose.Types.ObjectId[] = []
 
     // push the oids of the affected entities to their corresponding array
     if (affected?.user) {
       for (const item of affected.user) {
-        affectedUsers.push(new Types.ObjectId(item))
+        affectedUsers.push(new mongoose.Types.ObjectId(item))
       }
     }
 
     if (affected?.client) {
       for (const item of affected.client) {
-        affectedClients.push(new Types.ObjectId(item))
+        affectedClients.push(new mongoose.Types.ObjectId(item))
       }
     }
 
@@ -84,7 +83,7 @@ class Logger implements Logger.Interface {
         oldValues,
         newValues,
         group,
-        user: new Types.ObjectId(user),
+        user: new mongoose.Types.ObjectId(user),
         affected: affected
           ? {
               user: affected.user ? affectedUsers : undefined,
@@ -108,4 +107,4 @@ class Logger implements Logger.Interface {
   }
 }
 
-export { Logger }
+export default Logger

@@ -4,13 +4,14 @@ import { dtsPlugin } from 'esbuild-plugin-d.ts';
 
 build({
   entryPoints: ['src/index.ts'],
-  outfile: 'dist/index.min.js',
+  outfile: 'dist/index.js',
   bundle: true,
   minify: true,
   platform: 'node',
   target: 'es2020',
-  external: [...Object.keys(packageJSON.dependencies || {}), '*.d.ts'],
+  external: Object.keys(packageJSON.dependencies || {}),
   plugins: [dtsPlugin({
-    outDir: 'dist/types',
+    outDir: 'dist/',
+    experimentalBundling: true,
   })]
 }).catch(() => process.exit(1))

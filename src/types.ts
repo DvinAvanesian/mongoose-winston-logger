@@ -1,21 +1,4 @@
-import type { Document as MongooseDocument, Types } from 'mongoose'
-
-export declare namespace Log {
-  interface Interface {
-    action: string
-    user: Types.ObjectId
-    oldValues: string[]
-    newValues: string[]
-    message: string
-    date: Date
-    group: string
-    affected: any
-  }
-
-  interface Document extends Interface, MongooseDocument {}
-}
-
-export declare namespace Logger {
+declare namespace Logger {
   interface Message {
     message?: string
   }
@@ -34,7 +17,7 @@ export declare namespace Logger {
     affected?: Affected
   }
 
-  interface Interface {
+  interface ILogger {
     info(opts: Message): void
     action(opts: ActionProps): Promise<void>
     error(opts: Message): void
@@ -48,3 +31,5 @@ export declare namespace Logger {
     method?: 'POST' | 'GET' | 'PUT' | 'DELETE'
   }
 }
+
+export { Logger }

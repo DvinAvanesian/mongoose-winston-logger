@@ -1,7 +1,17 @@
-import mongoose, { Schema } from 'mongoose'
-import type { Log } from './types'
+import mongoose, { Schema, Types } from 'mongoose'
 
-const LogSchema = new Schema<Log.Document>({
+interface ILog {
+  action: string
+  user: Types.ObjectId
+  oldValues: string[]
+  newValues: string[]
+  message: string
+  date: Date
+  group: string
+  affected: any
+}
+
+const LogSchema = new Schema<ILog>({
   action: {
     type: String,
     required: true
@@ -15,6 +25,6 @@ const LogSchema = new Schema<Log.Document>({
   affected: { type: Schema.Types.Mixed, _id: false, __v: false }
 })
 
-const Log = mongoose.models.Log || mongoose.model<Log.Document>('Log', LogSchema)
+const Log = mongoose.models.Log || mongoose.model<ILog>('Log', LogSchema)
 
 export { Log, LogSchema }
