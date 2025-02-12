@@ -1,8 +1,8 @@
 {
   "name": "mongoose-winston-logger",
-  "version": "1.0.13",
-  "main": "dist/index.js",
-  "types": "types.d.ts",
+  "version": "1.0.15",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
   "author": "Dvin Avanesian",
   "license": "MIT",
   "repository": {
@@ -14,7 +14,7 @@
     "test": "vitest"
   },
   "exports": {
-    "mongoose-winston-logger": "dist/index.js"
+    ".": "dist/index.js"
   },
   "dependencies": {
     "dotenv": "^16.4.7",
@@ -30,8 +30,7 @@
     "vitest": "^3.0.5"
   },
   "files": [
-    "dist",
-    "types.d.ts"
+    "dist"
   ],
   "keywords": [
     "mongoose",
